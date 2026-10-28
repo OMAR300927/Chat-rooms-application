@@ -3,6 +3,7 @@ import AppLayout from '../components/layout/AppLayout'
 import LoginPage from '../pages/login/LoginPage'
 import ProfilePage from '../pages/profile/ProfilePage'
 import RegisterPage from '../pages/register/RegisterPage'
+import RoomChatPage from '../pages/room-chat/RoomChatPage'
 import RoomsPage from '../pages/rooms/RoomsPage'
 
 function placeholder(title: string, description: string) {
@@ -42,10 +43,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'rooms/:roomId',
-        element: placeholder(
-          'Room chat',
-          'Realtime user-to-user room chat will be built here.',
-        ),
+        element: <RoomChatPage />,
       },
       {
         path: 'payments',
