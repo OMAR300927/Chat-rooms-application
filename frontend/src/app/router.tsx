@@ -1,6 +1,7 @@
 import { Link, Navigate, createBrowserRouter } from 'react-router'
 import AppLayout from '../components/layout/AppLayout'
 import LoginPage from '../pages/login/LoginPage'
+import PaymentsPage from '../pages/payments/PaymentsPage'
 import ProfilePage from '../pages/profile/ProfilePage'
 import RegisterPage from '../pages/register/RegisterPage'
 import RoomChatPage from '../pages/room-chat/RoomChatPage'
@@ -47,10 +48,15 @@ export const router = createBrowserRouter([
       },
       {
         path: 'payments',
-        element: placeholder(
-          'Payments',
-          'AI access and payment management will be available here.',
-        ),
+        element: <PaymentsPage />,
+      },
+      {
+        path: 'payment/success',
+        element: <Navigate to="/payments?checkout=success" replace />,
+      },
+      {
+        path: 'payment/cancel',
+        element: <Navigate to="/payments?checkout=cancel" replace />,
       },
       {
         path: 'documents',
