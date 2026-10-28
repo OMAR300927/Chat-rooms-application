@@ -3,6 +3,7 @@ import AppLayout from '../components/layout/AppLayout'
 import LoginPage from '../pages/login/LoginPage'
 import ProfilePage from '../pages/profile/ProfilePage'
 import RegisterPage from '../pages/register/RegisterPage'
+import RoomsPage from '../pages/rooms/RoomsPage'
 
 function placeholder(title: string, description: string) {
   return (
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'rooms',
-        element: placeholder('Rooms', 'Browse, create, and join user chat rooms here.'),
+        element: <RoomsPage />,
       },
       {
         path: 'rooms/:roomId',
