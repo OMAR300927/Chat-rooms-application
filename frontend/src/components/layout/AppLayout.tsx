@@ -1,10 +1,12 @@
 import { NavLink, Outlet, useLocation } from 'react-router'
+import ThemeToggle from './ThemeToggle'
 
 const navigationItems = [
   { label: 'Rooms', to: '/rooms' },
   { label: 'AI conversations', to: '/ai-conversations' },
   { label: 'Documents', to: '/documents' },
   { label: 'Payments', to: '/payments' },
+  { label: 'Profile', to: '/profile', mobileOnly: true },
 ]
 
 function getPageTitle(pathname: string) {
@@ -43,10 +45,10 @@ function AppLayout() {
           Workspace
         </div>
         <nav className="grid gap-1 max-[720px]:flex max-[720px]:gap-1 max-[720px]:overflow-x-auto">
-          {navigationItems.map(({ label, to }) => (
+          {navigationItems.map(({ label, to, mobileOnly }) => (
             <NavLink
               className={({ isActive }) =>
-                `flex min-h-[2.6rem] items-center rounded-[0.65rem] px-3 py-2.5 text-sm font-medium no-underline transition-colors hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-white max-[720px]:min-h-[2.3rem] max-[720px]:shrink-0 max-[720px]:px-2.5 max-[720px]:py-2 max-[720px]:text-[0.82rem] ${
+                `${mobileOnly ? 'hidden max-[720px]:flex' : 'flex'} min-h-[2.6rem] items-center rounded-[0.65rem] px-3 py-2.5 text-sm font-medium no-underline transition-colors hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-white max-[720px]:min-h-[2.3rem] max-[720px]:shrink-0 max-[720px]:px-2.5 max-[720px]:py-2 max-[720px]:text-[0.82rem] ${
                   isActive
                     ? 'bg-blue-50 text-blue-800 hover:bg-blue-100 dark:bg-blue-950 dark:text-blue-200 dark:hover:bg-blue-900'
                     : 'text-slate-600 dark:text-slate-300'
@@ -77,10 +79,11 @@ function AppLayout() {
       </aside>
 
       <div className="ml-62 flex min-h-screen min-w-0 flex-1 flex-col max-[720px]:ml-0 max-[720px]:min-h-[calc(100vh-6.25rem)]">
-        <header className="flex min-h-18 items-center border-b border-slate-200 bg-white px-8 dark:border-slate-800 dark:bg-slate-900 max-[720px]:min-h-15 max-[720px]:px-5">
+        <header className="flex min-h-18 items-center justify-between border-b border-slate-200 bg-white px-8 dark:border-slate-800 dark:bg-slate-900 max-[720px]:min-h-15 max-[720px]:px-5">
           <h1 className="m-0 text-base font-semibold tracking-tight text-slate-900 dark:text-white">
             {getPageTitle(pathname)}
           </h1>
+          <ThemeToggle />
         </header>
         <div className="w-full flex-1 [&>.page-placeholder]:min-h-[calc(100vh-4.5rem)] max-[720px]:[&>.page-placeholder]:min-h-[calc(100vh-10rem)]">
           <Outlet />

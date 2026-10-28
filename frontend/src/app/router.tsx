@@ -1,6 +1,7 @@
 import { Link, Navigate, createBrowserRouter } from 'react-router'
 import AppLayout from '../components/layout/AppLayout'
 import LoginPage from '../pages/login/LoginPage'
+import ProfilePage from '../pages/profile/ProfilePage'
 import RegisterPage from '../pages/register/RegisterPage'
 
 function placeholder(title: string, description: string) {
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'profile',
-        element: placeholder('Profile', 'Your account profile will be available here.'),
+        element: <ProfilePage />,
       },
       {
         path: 'rooms',
