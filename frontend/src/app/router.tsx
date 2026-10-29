@@ -1,5 +1,6 @@
 import { Link, Navigate, createBrowserRouter } from 'react-router'
 import AppLayout from '../components/layout/AppLayout'
+import DocumentsPage from '../pages/documents/DocumentsPage'
 import LoginPage from '../pages/login/LoginPage'
 import PaymentsPage from '../pages/payments/PaymentsPage'
 import ProfilePage from '../pages/profile/ProfilePage'
@@ -60,10 +61,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'documents',
-        element: placeholder(
-          'Documents',
-          'Upload and manage your PDF documents here.',
-        ),
+        element: <DocumentsPage />,
       },
       {
         path: 'ai-conversations',
