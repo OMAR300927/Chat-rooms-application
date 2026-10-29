@@ -1,5 +1,6 @@
 import { Link, Navigate, createBrowserRouter } from 'react-router'
 import AppLayout from '../components/layout/AppLayout'
+import AIConversationsPage from '../pages/ai-conversations/AIConversationsPage'
 import DocumentsPage from '../pages/documents/DocumentsPage'
 import LoginPage from '../pages/login/LoginPage'
 import PaymentsPage from '../pages/payments/PaymentsPage'
@@ -7,16 +8,6 @@ import ProfilePage from '../pages/profile/ProfilePage'
 import RegisterPage from '../pages/register/RegisterPage'
 import RoomChatPage from '../pages/room-chat/RoomChatPage'
 import RoomsPage from '../pages/rooms/RoomsPage'
-
-function placeholder(title: string, description: string) {
-  return (
-    <main className="page-placeholder">
-      <p className="page-placeholder__eyebrow">Chat Rooms</p>
-      <h1>{title}</h1>
-      <p>{description}</p>
-    </main>
-  )
-}
 
 export const router = createBrowserRouter([
   {
@@ -65,10 +56,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'ai-conversations',
-        element: placeholder(
-          'AI conversations',
-          'Your AI conversation sidebar and chat will be built here.',
-        ),
+        element: <AIConversationsPage />,
       },
     ],
   },
